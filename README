@@ -1,0 +1,12 @@
+
+Ruby-script to fetch MatchFact-player-stats from ATPWorldTour.com for two player, change it to per-game-stats (instead of absolute) if requested, and print it.
+
+Usage: 
+  ruby ATPStats.rb "<Player 1>" "<Player 2>" <Year> <Surface> <per-game-stats>
+where year 0 = career, surface can be clay, grass or hard, 
+and per-game-stats are true (on, default) or false (off).
+
+Example:
+  ruby ATPStats.rb "Roger Federer" "Novak Djokovic" 2012 grass
+
+See bottom of ATPStats.rb for more details.
