@@ -1,12 +1,45 @@
 
-Ruby-script to fetch MatchFact-player-stats from ATPWorldTour.com for two player, change it to per-game-stats (instead of absolute) if requested, and print it.
+Ruby-script to fetch MatchFact-player-stats from ATPWorldTour.com for two players, change it to per-game-stats (instead of absolute) if requested, and print it.
 
 Usage: 
   ruby ATPStats.rb "<Player 1>" "<Player 2>" <Year> <Surface> <per-game-stats>
 where year 0 = career, surface can be clay, grass or hard, 
-and per-game-stats are true (on, default) or false (off).
+and per-game-stats can be true (on, default) or false (off).
 
 Example:
   ruby ATPStats.rb "Roger Federer" "Novak Djokovic" 2012 grass
 
 See bottom of ATPStats.rb for more details.
+Requires Nokogiri to perform the data-scraping.
+
+Sample run:
+  > ruby ATPStats.rb "Roger Federer" "Novak Djokovic" 2012 grass
+  Looking up Roger Federer and Novak Djokovic in year 2012 on surface #2.
+  Debug: Trying URL http://www.atpworldtour.com/Tennis/Players/Top-Players/Roger-F
+  ederer.aspx?t=mf&y=2012&s=2
+  Debug: Player-page found.
+  Debug: Trying URL http://www.atpworldtour.com/Tennis/Players/Top-Players/Novak-D
+  jokovic.aspx?t=mf&y=2012&s=2
+  Debug: Player-page found.
+
+  Serving Stats           Roger Federer   Novak Djokovic
+  Aces/game               0.63            0.59
+  Double Faults/game      0.09            0.13
+  1st Serve               68%             68%
+  1st Serve Points Won    78%             78%
+  2nd Serve Points Won    59%             58%
+  Break Points Faced/game 0.24            0.47
+  Break Points Saved      70%             83%
+  Service Games Played    167             90
+  Service Games Won       93%             92%
+  Service Points Won      72%             71%
+
+  Return Stats                    Roger Federer   Novak Djokovic
+  1st Serve Return Points Won     33%             36%
+  2nd Serve Return Points Won     53%             52%
+  Break Points Opportunities/game 0.69            0.61
+  Break Points Converted          41%             50%
+  Return Games Played             161             88
+  Return Games Won                29%             31%
+  Return Points Won               40%             42%
+  Total Points Won                55%             56%
